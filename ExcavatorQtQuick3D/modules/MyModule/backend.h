@@ -21,11 +21,10 @@ public:
 
     float armRotation() const { return m_armRotation; }
     float bucketRotation() const { return m_bucketRotation; }
+    float trackRotation() const;
 
     Q_INVOKABLE void moveArm(float amount);
     Q_INVOKABLE void moveBucket(float amount);
-
-    float trackRotation() const;
     Q_INVOKABLE void setTrackRotation(float amount);
 
 private:
@@ -41,7 +40,6 @@ private:
 signals:
     void armRotationChanged();
     void bucketRotationChanged();
-
     void trackRotationChanged();
 };
 

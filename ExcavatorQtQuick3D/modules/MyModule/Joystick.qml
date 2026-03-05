@@ -124,6 +124,16 @@ Item {
                 let nx = dx / (root.radius - root.knobRadius)
                 let ny = dy / (root.radius - root.knobRadius)
 
+                // TODO: add diagnoal regions to the joystick:
+                /*if (nx < -0.6 && ny < -0.6) {
+                    root.command = root.upLeftLabel
+                } else if (nx > 0.6 && ny < -0.6) {
+                    root.command = root.upRightLabel
+                } else if (nx < -0.6 && ny > 0.6) {
+                    root.command = root.downLeftLabel
+                } else if (nx > 0.6 && ny > 0.6) {
+                    root.command = root.downRightLabel
+                }*/
 
                 // Determine region the user has selected
                 if (Math.abs(nx) < 0.4 && ny < -0.6) {

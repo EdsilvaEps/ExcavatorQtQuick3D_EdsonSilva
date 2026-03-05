@@ -20,9 +20,19 @@ Window {
                 textureData: ProceduralSkyTextureData { }
             }
             ditheringEnabled: true
-            InfiniteGrid {
+            /*InfiniteGrid {
                 gridInterval: 100
-            }
+            }*/
+        }
+
+
+        DesertTerrain {
+            id: desertGround
+
+            scale.x: 100
+            scale.y: 10
+            scale.z: 100
+
         }
 
         Node {
@@ -79,6 +89,15 @@ Window {
                         position.x -= f.x * speed
                         position.z -= f.z * speed
                     }
+
+                    onPositionChanged:{
+                        console.log("Absolute position of excavator: ",
+                                    excavator.position.x, "| posY ",
+                                    excavator.position.y, "| posZ ",
+                                    excavator.position.z);
+                    }
+
+
                 }
         }
 
