@@ -113,7 +113,6 @@ Item {
 
             onPositionChanged: {
                 parent.color = 'red'
-
                 // calculate the knob's position relative to the center to determine the region
                 let centerPos = root.radius - root.knobRadius
                 // distance moved from center

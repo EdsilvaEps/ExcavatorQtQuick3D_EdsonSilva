@@ -6,6 +6,9 @@ qt_add_qml_module(${PROJECT_NAME}lib
     QML_FILES
         Joystick.qml
         Excavator.qml
+        DesertTerrain.qml
+        Snow_terrain_mesh.qml
+        HUDSelectTerrain.qml
     RESOURCES
         meshes/aset_nature_rock_M_venodhb_LOD0.mesh
         meshes/arm_link_mesh.mesh
@@ -21,12 +24,14 @@ qt_add_qml_module(${PROJECT_NAME}lib
         meshes/mesh_011_mesh.mesh
         meshes/mesh_012_mesh.mesh
         meshes/mesh_mesh.mesh
+        meshes/terrain_mesh.mesh
         textures/venodhb_2K_Albedo.jpg
         textures/venodhb_2K_Normal_LOD0.jpg
         textures/venodhb_2K_Roughness.jpg
+        textures/snow_02_diff_1k.jpg
+
 
     SOURCES
         backend.h
         backend.cpp
-        QML_FILES DesertTerrain.qml
 )

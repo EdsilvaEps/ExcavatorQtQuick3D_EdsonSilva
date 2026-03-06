@@ -25,6 +25,16 @@ Window {
             }*/
         }
 
+        Backend{
+            id:backend
+        }
+
+        HUDSelectTerrain {
+            id: hud
+            onTerrainSelected: backend.setTerrain(terrainType)
+            z: 999 // adds higher stacking order so that clicking events are not overtaken by the orbitcamera
+        }
+
 
         DesertTerrain {
             id: desertGround
@@ -32,7 +42,17 @@ Window {
             scale.x: 100
             scale.y: 10
             scale.z: 100
+            visible: backend.terrain === Backend.Desert
 
+        }
+
+        Snow_terrain_mesh {
+            id: snowyGround
+            scale.x: 50
+            scale.y: 10
+            scale.z: 50
+            position.y: -10
+            visible: backend.terrain === Backend.Snow
         }
 
         Node {
@@ -128,10 +148,6 @@ Window {
         downLabel: "Lower"
         leftLabel: "Open"
         rightLabel: "Close"
-    }
-
-    Backend{
-        id:backend
     }
 
     /*

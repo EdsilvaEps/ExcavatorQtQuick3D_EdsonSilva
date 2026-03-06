@@ -15,17 +15,27 @@ class Backend : public QObject
     Q_PROPERTY(float armRotation READ armRotation NOTIFY armRotationChanged FINAL)
     Q_PROPERTY(float bucketRotation READ bucketRotation NOTIFY bucketRotationChanged FINAL)
     Q_PROPERTY(float trackRotation READ trackRotation WRITE setTrackRotation NOTIFY trackRotationChanged FINAL)
+    Q_PROPERTY(TerrainType terrain READ terrain WRITE setTerrain NOTIFY terrainChanged FINAL)
 
 public:
     explicit Backend(QObject *parent = nullptr);
 
+    enum TerrainType {
+        Snow,
+        Desert
+    };
+    Q_ENUM(TerrainType)
+
     float armRotation() const { return m_armRotation; }
     float bucketRotation() const { return m_bucketRotation; }
     float trackRotation() const;
+    TerrainType terrain() const;
+
 
     Q_INVOKABLE void moveArm(float amount);
     Q_INVOKABLE void moveBucket(float amount);
     Q_INVOKABLE void setTrackRotation(float amount);
+    Q_INVOKABLE void setTerrain(TerrainType newTerrain);
 
 private:
     float m_bucketRotation = 0;
@@ -37,10 +47,13 @@ private:
     float m_trackRotation = 0;
     float m_trackRotationLimits[2] = {-180.0f, 180.0f};
 
+    TerrainType m_terrain = TerrainType::Desert;
+
 signals:
     void armRotationChanged();
     void bucketRotationChanged();
     void trackRotationChanged();
+    void terrainChanged();
 };
 
 #endif // BACKEND_H

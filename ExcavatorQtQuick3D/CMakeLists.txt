@@ -4,7 +4,7 @@ project(ExcavatorQtQuick3D VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt6 REQUIRED COMPONENTS Quick)
+find_package(Qt6 REQUIRED COMPONENTS Quick QuickControls2)
 
 qt_standard_project_setup(REQUIRES 6.8)
 
@@ -33,7 +33,10 @@ set_target_properties(appExcavatorQtQuick3D PROPERTIES
 )
 
 target_link_libraries(appExcavatorQtQuick3D
-    PRIVATE Qt6::Quick MyModulelibplugin
+    PRIVATE
+        Qt6::Quick
+        Qt6::QuickControls2
+        MyModulelibplugin
 )
 
 include(GNUInstallDirs)

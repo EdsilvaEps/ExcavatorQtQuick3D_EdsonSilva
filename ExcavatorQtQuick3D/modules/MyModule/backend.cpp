@@ -40,3 +40,17 @@ void Backend::setTrackRotation(float amount)
     qInfo() << "track rotation values: " << m_trackRotation ;
     emit trackRotationChanged();
 }
+
+Backend::TerrainType Backend::terrain() const
+{
+    return m_terrain;
+}
+
+void Backend::setTerrain(TerrainType newTerrain)
+{
+    qInfo() << "New terrain selected: " << newTerrain ;
+    if (m_terrain == newTerrain)
+        return;
+    m_terrain = newTerrain;
+    emit terrainChanged();
+}
